@@ -1,9 +1,9 @@
 import { FormControl ,FormLabel, Radio, Paper, RadioGroup, Grid,FormControlLabel} from '@mui/material';
 
 
-function Formulario({spacing,justifyContent,direction,alignItems, handleChange}){
+function Formulario({data,  handleChange}){
     return   <Grid item xs={12} spacing={2}>
-    <Paper sx={{ p: 2 }}>
+    <Paper sx={{ m: 2, p: 2 }}>
       <Grid container>
         <Grid item>
           <FormControl component="fieldset">
@@ -11,7 +11,7 @@ function Formulario({spacing,justifyContent,direction,alignItems, handleChange})
             <RadioGroup
               name="spacing"
               aria-label="spacing"
-              value={spacing?.toString()}
+              value={data?.spacing?.toString()}
               onChange={handleChange}
               row
             >
@@ -29,7 +29,7 @@ function Formulario({spacing,justifyContent,direction,alignItems, handleChange})
       </Grid>
     </Paper>
 
-    <Paper sx={{ p: 2 }}>
+    <Paper sx={{ m: 2, p: 2 }}>
       <Grid container>
         <Grid item>
           <FormControl component="fieldset">
@@ -37,7 +37,7 @@ function Formulario({spacing,justifyContent,direction,alignItems, handleChange})
             <RadioGroup
               name="direction"
               aria-label="direction"
-              value={direction?.toString()}
+              value={data?.direction?.toString()}
               onChange={handleChange}
               row
             >
@@ -55,7 +55,7 @@ function Formulario({spacing,justifyContent,direction,alignItems, handleChange})
       </Grid>
     </Paper>
 
-    <Paper sx={{ p: 2 }}>
+    <Paper sx={{ m: 2, p: 2 }}>
       <Grid container>
         <Grid item>
           <FormControl component="fieldset">
@@ -63,7 +63,7 @@ function Formulario({spacing,justifyContent,direction,alignItems, handleChange})
             <RadioGroup
               name="justifyContent"
               aria-label="justifyContent"
-              value={justifyContent?.toString()}
+              value={data?.justifyContent?.toString()}
               onChange={handleChange}
               row
             >
@@ -80,7 +80,7 @@ function Formulario({spacing,justifyContent,direction,alignItems, handleChange})
         </Grid>
       </Grid>
     </Paper>
-    <Paper sx={{ p: 2 }}>
+    <Paper sx={{ m: 2, p: 2 }}>
       <Grid container>
         <Grid item>
           <FormControl component="fieldset">
@@ -88,7 +88,7 @@ function Formulario({spacing,justifyContent,direction,alignItems, handleChange})
             <RadioGroup
               name="alignItems"
               aria-label="alignItems"
-              value={alignItems?.toString()}
+              value={data?.alignItems?.toString()}
               onChange={handleChange}
               row
             >
