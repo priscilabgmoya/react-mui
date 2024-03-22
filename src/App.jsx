@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import PruebaUno from './components/pruebaHook/Prueba_uno'
 import PruebaDos from './components/pruebaHook/Prueba_dos'
+import PruebaTres from './components/pruebaHook/Prueba_tres'
 
 
 function App() {
@@ -21,7 +22,7 @@ const handleChange = (e) =>{
   return (
     <>
     
-    <PruebaDos/>
+    <PruebaTres/>
     </>
   )
 }
