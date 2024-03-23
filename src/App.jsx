@@ -3,6 +3,7 @@ import './App.css'
 import PruebaUno from './components/pruebaHook/Prueba_uno'
 import PruebaDos from './components/pruebaHook/Prueba_dos'
 import PruebaTres from './components/pruebaHook/Prueba_tres'
+import TablaCheck from './components/Tabla/TablaCheck'
 
 
 function App() {
@@ -22,7 +23,7 @@ const handleChange = (e) =>{
   return (
     <>
     
-    <PruebaTres/>
+    <TablaCheck/>
     </>
   )
 }

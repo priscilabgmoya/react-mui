@@ -10,9 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.3",
+    "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.15.6",
+    "@mui/material": "^5.15.14",
+    "@mui/x-data-grid": "^7.0.0",
+    "@mui/x-data-grid-generator": "^7.0.0",
+    "@mui/x-date-pickers": "^7.0.0",
+    "dayjs": "^1.11.10",
     "formik": "^2.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
