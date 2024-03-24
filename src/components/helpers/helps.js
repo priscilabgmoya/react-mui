@@ -55,9 +55,21 @@ export function obtenerColorDeFondoAleatorio() {
           color25: "#1a1a1a", 
           color26: "#f9f9f9",
           color27: "#242424",
-          color28: "rgba(255, 255, 255, 0.87)"
+          color28: "rgba(255, 255, 255, 0.87)",
+          color29: "#v5et51"
         };
     const keys = Object.keys(coloresDeFondo);
     const randomKey = keys[Math.floor(Math.random() * keys.length)];
     return coloresDeFondo[randomKey];
   }  
+
+  export function generarColorAleatorio() {
+    const caracteres = "abcdef123456789";
+    let cadenaAleatoria = '';
+    for (let i = 0; i < 6; i++) {
+      const indice = Math.floor(Math.random() * caracteres.length);
+      cadenaAleatoria += caracteres[indice];
+    }
+    console.log(cadenaAleatoria);
+    return `#${cadenaAleatoria.toLocaleUpperCase()}`
+}
