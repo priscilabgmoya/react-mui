@@ -1,6 +1,6 @@
 body{
   display: flex;
-
+  background-color: #E3E7F1 !important;
   align-items: center;
   flex-direction: column;
 }
@@ -8,4 +8,12 @@ body{
 width: 100%;
   text-align: center;
   flex-grow: 1;
+}
+
+.mainRender{
+  display: flex !important; 
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column !important;
+  height: 88vh !important;
 }
