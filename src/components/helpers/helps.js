@@ -73,3 +73,14 @@ export function obtenerColorDeFondoAleatorio() {
     console.log(cadenaAleatoria);
     return `#${cadenaAleatoria.toLocaleUpperCase()}`
 }
+
+export const getDate = () => {
+    // Obtener la fecha actual
+    const fechaActual = new Date();
+    const añoActual = fechaActual.getFullYear();
+    const mesActual = (fechaActual.getMonth()+1).toString().length  ==1 ? parseInt("0"+ (fechaActual.getMonth()+1)) :  (fechaActual.getMonth()+1) ;
+    const diaActual = fechaActual.getDate();
+  
+    // Establecer la fecha mínima permitida como la fecha actual
+    return {date: `${añoActual}-${mesActual}-${diaActual}`} 
+}

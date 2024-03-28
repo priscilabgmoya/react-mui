@@ -9,6 +9,8 @@ import { Container, Typography } from '@mui/material'
 import CopyrightIcon from '@mui/icons-material/Copyright';
 import { Route, Routes } from 'react-router-dom'
 import LineaDeTiempo from './components/timeliner/Timeliner'
+import InputDay from './components/inputDays/InputDays'
+import PrecioInput_Dos from './components/inputDays/inputPrecio_Dos'
 
 function App() {
   /*
@@ -30,8 +32,11 @@ const date = new Date();
     
 
     < Container maxWidth="xl" className='mainRender'>
-    <LineaDeTiempo/>
-
+<InputDay/>
+        <div>
+            <h1>Manejo de Precio en React con Material-UI y Numeral.js</h1>
+            <PrecioInput_Dos label="Precio" />
+        </div>
     </Container>
     <footer>
       <Typography sx={{ textAlign: "center",verticalAlign:"middle", fontStyle:"italic"}}> <CopyrightIcon sx={{textAlign: "center", m:0 , p:0, fontSize:15, verticalAlign:"middle"}}/> {`${date.getFullYear()} - Dirección Informática` }</Typography>
