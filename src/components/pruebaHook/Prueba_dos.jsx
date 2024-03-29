@@ -1,6 +1,6 @@
 import { useLayoutEffect } from "react";
 import { useLocalStorage } from "../../hooks/hookStorage"
-import { generarColorAleatorio, obtenerColorDeFondoAleatorio } from "../helpers/helps";
+import { generarColorAleatorio } from '../../helpers/helps';
 import { Box } from "@mui/material";
 
 export default function PruebaDos () {

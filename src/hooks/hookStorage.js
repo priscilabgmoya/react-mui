@@ -1,19 +1,7 @@
 import { useState } from "react";
+import { createLocalStorage } from "../helpers/helps";
 
-const createLocalStorage = (key, defaultValue) => {
-    try {
-        const value = localStorage.getItem(key);
-        if (value) {
-            return JSON.parse(value);
-        } else {
-            localStorage.setItem(key, JSON.stringify(defaultValue));
-            return defaultValue;
-        }
-    } catch (error) {
-        console.log("ocurrio un error!", error);
-        return defaultValue;
-    }
-}
+
 
 export const useLocalStorage = (key, defaultValue) => {
     const [storedValue, setStoredValue] = useState(createLocalStorage(key, defaultValue));

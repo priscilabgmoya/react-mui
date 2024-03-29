@@ -1,5 +1,5 @@
 import { useLocalStorage } from "../../hooks/hookStorage"
-import { generarNumeroAleatorio, generarPalabraAleatoria } from "../helpers/helps";
+import { generarNumeroAleatorio, generarPalabraAleatoria } from '../../helpers/helps';
 
 
 export default function PruebaUno () {

@@ -1,16 +1,7 @@
-import { useState } from 'react'
 import './App.css'
-import PruebaUno from './components/pruebaHook/Prueba_uno'
-import PruebaDos from './components/pruebaHook/Prueba_dos'
-import PruebaTres from './components/pruebaHook/Prueba_tres'
-import TablaCheck from './components/Tabla/TablaCheck'
-import PersistentDrawerLeft from './components/NavBar/NavBar'
-import { Container, Typography } from '@mui/material'
-import CopyrightIcon from '@mui/icons-material/Copyright';
-import { Route, Routes } from 'react-router-dom'
-import LineaDeTiempo from './components/timeliner/Timeliner'
-import InputDay from './components/inputDays/InputDays'
-import PrecioInput_Dos from './components/inputDays/inputPrecio_Dos'
+import AppRoutes from './Routes/AppRouter'
+import PrivateLayout from './components/layouts/PrivateLayout'
+import PublicLayout from './components/layouts/PublicLayout'
 
 function App() {
   /*
@@ -26,23 +17,10 @@ const handleChange = (e) =>{
   setData(data); 
   console.log(data);
 }*/
-const date = new Date(); 
+
   return (
     <>
-    
-
-    < Container maxWidth="xl" className='mainRender'>
-<InputDay/>
-        <div>
-            <h1>Manejo de Precio en React con Material-UI y Numeral.js</h1>
-            <PrecioInput_Dos label="Precio" />
-        </div>
-    </Container>
-    <footer>
-      <Typography sx={{ textAlign: "center",verticalAlign:"middle", fontStyle:"italic"}}> <CopyrightIcon sx={{textAlign: "center", m:0 , p:0, fontSize:15, verticalAlign:"middle"}}/> {`${date.getFullYear()} - Dirección Informática` }</Typography>
-    </footer>
-
-
+    <AppRoutes/>
     </>
   )
 }

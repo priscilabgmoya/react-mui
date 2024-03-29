@@ -1,16 +1,14 @@
-import * as React from 'react';
+import { useState } from "react";
+import { Drawer, IconButton, Toolbar, Typography } from "@mui/material";
 import { styled, useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import CssBaseline from '@mui/material/CssBaseline';
+import { Box } from "@mui/system";
+import {Menu,Settings} from '@mui/icons-material';
 import MuiAppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import { Outlet } from "react-router-dom";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListNavBar from './LIstNav';
+import ListNavBarHorizontal from "./ListNavHorizontal";
+import ListNavBar from "./LIstNav";
 
 const drawerWidth = 240;
 
@@ -56,67 +54,62 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: 'flex-end',
+  color:"black"
 }));
 
-export default function PersistentDrawerLeft({children}) {
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
+export default function NavBar({location, children}) {
+    const theme = useTheme();
+    const [open, setOpen] = useState(false);
+  
+    const handleChange = () => {
+      setOpen(!open);
+    };
+  
 
-  const handleChange = () => {
-    setOpen(!open);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(!open);
-  };
-
-  return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleChange}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: 'none' }) }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-           Bienes Patrimoniales
-          </Typography>
-        </Toolbar>
-        
-      </AppBar>
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            width: drawerWidth,
-            boxSizing: 'border-box',
-          },
-        }}
-        variant="persistent"
-        anchor="left"
-        open={open}
-      >
-        <DrawerHeader>
+    return(
+        <Box sx={{ display: 'flex' }}>
+            <AppBar position="fixed" open={open}>
+                <Toolbar >
+                    <IconButton  onClick={handleChange} size="large"  sx={{ mr: 2, ...(open && { display: 'none' }) }} edge="start">
+                        <Menu sx={{color:'white' }}/>
+                    </IconButton>
+                    <Typography  variant="h6" noWrap component="div"  sx={{flexGrow:1, display:'flex', color:'white' ,fontSize:17}}  >Bienes Patrimoniales</Typography>
+                    <Box sx={{display:{xs: 'none', sm:'flex'} }}>
+                        <ListNavBarHorizontal/>
+                        <Outlet /> 
+                    </Box>
+                </Toolbar>
+            </AppBar>
+        <Drawer
+              sx={{
+                width: drawerWidth,
+                flexShrink: 0,
+                '& .MuiDrawer-paper': {
+                  width: drawerWidth,
+                  boxSizing: 'border-box',
+                  backgroundColor: '#E3E7F1', 
+                },
+              }}
+              variant="persistent"
+              anchor="left"
+              open={open}
+        >
+         <DrawerHeader>
           <IconButton onClick={handleChange}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </DrawerHeader>
-       <ListNavBar />
-      </Drawer>
-      <Main open={open}>
+        <Box  sx={{display: "flex" , flexDirection: 'column',justifyContent:"star"  , textAlign: "left" }}>
+            <ListNavBar location={location}/> 
+            <Outlet /> 
+            </Box>
+        </Drawer>
+        <Main open={open}>
         <DrawerHeader />
         {children}
-      </Main>
-    </Box>
-  );
+        </Main>
+        </Box>
+    );
 }

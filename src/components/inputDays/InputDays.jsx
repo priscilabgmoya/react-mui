@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { getDate } from '../helpers/helps';
+import { getDate } from '../../helpers/helps';
+
 import dayjs from 'dayjs';
 
 export default function InputDay() {

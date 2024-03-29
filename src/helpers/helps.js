@@ -84,3 +84,53 @@ export const getDate = () => {
     // Establecer la fecha mínima permitida como la fecha actual
     return {date: `${añoActual}-${mesActual}-${diaActual}`} 
 }
+
+export const createLocalStorage = (key, defaultValue) => {
+  try {
+      const value = localStorage.getItem(key);
+      if (value) {
+          return JSON.parse(value);
+      } else {
+          localStorage.setItem(key, JSON.stringify(defaultValue));
+          return defaultValue;
+      }
+  } catch (error) {
+      console.log("ocurrio un error!", error);
+      return defaultValue;
+  }
+}
+const sortArray = (a, b) => {
+  const nameA = a.categoria.toUpperCase(); // ignore upper and lowercase
+  const nameB = b.categoria.toUpperCase(); // ignore upper and lowercase
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+
+  // names must be equal
+  return 0;
+}
+const newArray = (obj) => {
+  let dataFormateada = []; 
+  let keys = Object.keys(obj); 
+  for (let index = 0; index < keys.length; index++) {
+    debugger
+    const newObjet ={
+       categoria: keys[index],
+       rutas: obj[keys[index]]
+    }
+    dataFormateada.push(newObjet)
+  }
+  return dataFormateada.sort(sortArray); 
+}
+export const reduceData = (array) => {
+  let newObj = array.reduce((gestionar, data)=>{
+    const key = data.categoria; 
+    !gestionar[key] ? gestionar[key] = [] : null; 
+    gestionar[key].push(data); 
+    return  gestionar;
+  },{}); 
+  return newArray(newObj); 
+}
