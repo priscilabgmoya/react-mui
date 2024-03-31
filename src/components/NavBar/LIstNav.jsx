@@ -23,7 +23,7 @@ export default function ListNavBar() {
                                     data.rutas.map((ruta,iRuta)=>{
                                         return        (<ListItemButton key={iRuta} sx={{color:'black' ,fontSize: 14}}>
                                         <ListItemIcon sx={{color: "black" }}  >
-                                            {item.icon}
+                                            {ruta.icon}
                                         </ListItemIcon>
                                             <Link component= "a" key={i} to={ ruta.link} className="nav-link" >
                                         {ruta.nombre}

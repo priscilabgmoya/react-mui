@@ -108,7 +108,18 @@ const sortArray = (a, b) => {
   if (nameA > nameB) {
     return 1;
   }
-
+  // names must be equal
+  return 0;
+}
+const sortArrayName = (a, b) => {
+  const nameA = a.nombre.toUpperCase(); // ignore upper and lowercase
+  const nameB = b.nombre.toUpperCase(); // ignore upper and lowercase
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
   // names must be equal
   return 0;
 }
@@ -119,7 +130,7 @@ const newArray = (obj) => {
     debugger
     const newObjet ={
        categoria: keys[index],
-       rutas: obj[keys[index]]
+       rutas: obj[keys[index]].sort(sortArrayName)
     }
     dataFormateada.push(newObjet)
   }
