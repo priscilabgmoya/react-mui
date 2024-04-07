@@ -10,8 +10,6 @@ export default function TablaGenerica({data,columns,loading , height, pageSizeOp
           rows={data}
           columns={columns}
           style={{backgroundColor:"white",borderRadius:10}}
-          onRowSelectionModelChange ={handleChange ? handleChange : null}
-          rowSelectionModel = {model ? model : null}
           initialState={{
             pagination: {
               paginationModel: {

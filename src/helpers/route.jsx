@@ -8,6 +8,7 @@ import LineaDeTiempo from "../components/timeliner/Timeliner";
 import InputDay from "../components/inputDays/InputDays";
 import PrecioInput_Dos from "../components/inputDays/inputPrecio_Dos";
 import PruebaTres from "../components/pruebaHook/Prueba_tres";
+import CrearBien from "../components/Tabla/altaBien";
 
 export const routePrivate = [
     {
@@ -68,7 +69,7 @@ export const routePrivate = [
     },
     {
         path: "/GestionarCategorias",
-        element: <Box>/GestionarCategorias</Box>
+        element: <CrearBien/>
     },
     {
         path: "/",
