@@ -5,7 +5,8 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom';
-
+import '@react-pdf-viewer/core/lib/styles/index.css';
+import * as serviceWorker from './serviceWorker';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
   <React.StrictMode>
@@ -15,3 +16,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </React.StrictMode>
   </BrowserRouter>,
 )
+serviceWorker.unregister();

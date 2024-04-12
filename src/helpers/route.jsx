@@ -9,6 +9,8 @@ import InputDay from "../components/inputDays/InputDays";
 import PrecioInput_Dos from "../components/inputDays/inputPrecio_Dos";
 import PruebaTres from "../components/pruebaHook/Prueba_tres";
 import CrearBien from "../components/Tabla/altaBien";
+import { EncodeBase64 } from "../components/base64/Base64";
+import LoadFromBase64Example from "../components/base64/Base64_segunda";
 
 export const routePrivate = [
     {
@@ -61,11 +63,11 @@ export const routePrivate = [
     },
     {
         path: "/GestionarNomencladorEconomico",
-        element: <Box>/GestionarNomencladorEconomico</Box>
+        element:  <LoadFromBase64Example/> 
     },
     {
         path: "/GestionarProvincias",
-        element: <Box>/GestionarProvincias</Box>
+        element: <EncodeBase64/>  
     },
     {
         path: "/GestionarCategorias",
