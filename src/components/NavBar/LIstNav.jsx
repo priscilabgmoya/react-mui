@@ -11,7 +11,13 @@ export default function ListNavBar() {
       {linkNavBar.map((item, index) => {
     return item.data ? 
     <Box key={index}>
-      <CollapseMenu data={item.data} />
+    {
+        item?.data.map((data, index)=>{
+            return    <Box key={index}>
+            <CollapseMenu data={data} frist={index == 0 ? true: false}/>
+          </Box>
+        })
+    }
     </Box>
   : null
       }
