@@ -253,6 +253,3 @@ for (let index = 0; index < keys.length; index++) {
 }
 return {transferencias: dataFormateada}; 
 }
-
-const {trasnferencias} = reducerTransferencias(taskPruebas)
-console.log(trasnferencias);
