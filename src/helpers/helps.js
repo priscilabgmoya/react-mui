@@ -145,3 +145,114 @@ export const reduceData = (array) => {
   },{}); 
   return newArray(newObj); 
 }
+export const taskPruebas = [
+  {
+    id: 1,
+    tarea: "Completar informe",
+    prioridad: "Alta",
+    completada: false,
+    ultima_oficina: 123,
+  },
+  {
+    id: 2,
+    tarea: "Enviar correo electrónico",
+    prioridad: "Media",
+    completada: true,
+    ultima_oficina: 123,
+  },
+  {
+    id: 3,
+    tarea: "Preparar presentación",
+    prioridad: "Alta",
+    completada: false,
+    ultima_oficina: 123,
+  },
+  {
+    id: 4,
+    tarea: "Reunión con equipo",
+    prioridad: "Baja",
+    completada: false,
+    ultima_oficina: 456,
+  },
+  {
+    id: 5,
+    tarea: "Completar informe",
+    prioridad: "Alta",
+    completada: false,
+    ultima_oficina: 123,
+  },
+  {
+    id: 6,
+    tarea: "Enviar correo electrónico",
+    prioridad: "Media",
+    completada: true,
+    ultima_oficina: 123,
+  },
+  {
+    id: 7,
+    tarea: "Preparar presentación",
+    prioridad: "Alta",
+    completada: false,
+    ultima_oficina: 456,
+  },
+  {
+    id: 8,
+    tarea: "Reunión con equipo",
+    prioridad: "Baja",
+    completada: false,
+    ultima_oficina: 3456,
+  },
+  {
+    id: 9,
+    tarea: "Completar informe",
+    prioridad: "Alta",
+    completada: false,
+    ultima_oficina: 456,
+  },
+  {
+    id: 10,
+    tarea: "Enviar correo electrónico",
+    prioridad: "Media",
+    completada: true,
+    ultima_oficina: 3456,
+  },
+  {
+    id: 11,
+    tarea: "Preparar presentación",
+    prioridad: "Alta",
+    completada: false,
+    ultima_oficina: 456,
+  },
+  {
+    id: 12,
+    tarea: "Reunión con equipo",
+    prioridad: "Baja",
+    completada: false,
+    ultima_oficina: 3456,
+  },
+];
+
+
+export const reducerTransferencias = (array) =>{
+  let dataFormateada= []
+let newObj = array.reduce((trasnferencia={}, data) =>{
+  const key = data?.ultima_oficina; 
+  console.log(key);
+  !trasnferencia[key] ? trasnferencia[key] = [] :null  
+  trasnferencia[key].push(data.id); 
+  return trasnferencia; 
+})
+let keys = Object.keys(newObj); 
+for (let index = 0; index < keys.length; index++) {
+  debugger
+  const newObjet ={
+     categoria: keys[index],
+     rutas: newObj[keys[index]]
+  }
+  dataFormateada.push(newObjet)
+}
+return {transferencias: dataFormateada}; 
+}
+
+const {trasnferencias} = reducerTransferencias(taskPruebas)
+console.log(trasnferencias);

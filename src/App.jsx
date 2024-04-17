@@ -2,6 +2,8 @@ import './App.css'
 import AppRoutes from './Routes/AppRouter'
 import PrivateLayout from './components/layouts/PrivateLayout'
 import PublicLayout from './components/layouts/PublicLayout'
+import {  taskPruebas } from './helpers/data'
+import { reducerTransferencias } from './helpers/helps'
 
 function App() {
   /*
