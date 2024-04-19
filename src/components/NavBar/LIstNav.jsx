@@ -9,7 +9,7 @@ export default function ListNavBar() {
     <>
     <Typography sx={{ textAlign: "center" }}>Menú</Typography>
       {linkNavBar.map((item, index) => {
-    return item.data ? 
+    return item.data  && item.persmiso == "USER-INFORMATICO" ? 
     <Box key={index}>
     {
         item?.data.map((data, index)=>{

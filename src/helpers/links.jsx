@@ -122,38 +122,41 @@ export const linksNavbarGestionar = [
         icon: <Assignment/> , 
         link: "/informes"
     },
-    {
-        categoria: "Bienes Patrimoniales", 
-        nombre: "Bienes Pendientes",
-        icon: <Checklist/>,
-        link: "/bienes"
-    },
-    {
-        categoria: "Bienes Patrimoniales", 
-        nombre: "Bienes",
-        icon: <Checklist/>,
-        link: "/bienes"
-    },
+]
+const Informatica = [
     {
         categoria: "Bienes Informáticos", 
         nombre: "Bienes Pendientes",
         icon: <Checklist/>,
-        link: "/bienes"
+        link: "/bienes",
     },
     {
         categoria: "Bienes Informáticos", 
         nombre: "Bienes",
         icon: <Checklist/>,
-        link: "/bienes"
+        link: "/bienes",
     },
     {
         categoria: "Bienes Informáticos", 
         nombre: "Equipos de Trabajo",
         icon: <Checklist/>,
+        link: "/bienes",
+    },
+]
+const Patrimoniales = [
+    {
+        categoria: "Bienes Patrimoniales", 
+        nombre: "Bienes Pendientes",
+        icon: <Checklist/>,
+        link: "/bienes"
+    },
+    {
+        categoria: "Bienes Patrimoniales", 
+        nombre: "Bienes",
+        icon: <Checklist/>,
         link: "/bienes"
     },
 ]
-
 export const linkNavBar = [
     {
         nombre: "Transferencias",
@@ -171,9 +174,16 @@ export const linkNavBar = [
         link: "/informes"
     },
     {
-        nombre: "Menú", 
+        nombre: "Menú Bienes Informatico", 
         icon: <Settings/> , 
-        data: reduceData(linksNavbarGestionar)
+        data: reduceData(Informatica.concat(linksNavbarGestionar)),
+        persmiso: "USER-INFORMATICO"
+    },
+    {
+        nombre: "Menú Bienes Patrimoniales", 
+        icon: <Settings/> , 
+        data: reduceData(Patrimoniales.concat(linksNavbarGestionar)),
+        persmiso: "USER-PATRIMONIALES"
     },
     {
         nombre: "Cerrar Sesión",

@@ -1,7 +1,7 @@
 import {Autocomplete, Box, Checkbox, FormControlLabel, Grid, TextField, Tooltip, Typography } from '@mui/material';
-import {  btnDetalle, btnEliminar, btnEliminarCaracteristica, btnGuardarBien, formAltaBien, inputCaracteristica, inputGestionar, selectDetalle } from '../../CSS/gestionar';
+import {  btnAgregarCaracteristica, btnDetalle, btnEliminar, btnEliminarCaracteristica, btnGuardarBien, btnSeleccionarDetalle, formAltaBien, inputCaracteristica, inputGestionar, selectDetalle } from '../../CSS/gestionar';
 import {Add,RemoveRedEye,Delete} from "@mui/icons-material";
-import { msgError } from '../../CSS/Login';
+import { btnOK, msgError } from '../../CSS/Login';
 import { useFormik } from 'formik';
 import TablaGenerica from './TablaGenerica';
 import { useDemoData } from '@mui/x-data-grid-generator';
@@ -99,7 +99,7 @@ export default function CrearBien(){
       <Typography variant='h5' sx={{mb:1,mt:1, textAlign:"start"}}  fontWeight="bold"> {`Crear Nuevo Bien`}</Typography>
 <Box sx={{height:201, overflowY:"auto"}}>
       <Grid container >
-        <Grid item  xs={6} sx={{ m: 1 }}  >
+        <Grid item  xs={6} sx={{ m: 2 }}  >
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Box>
               <Autocomplete 
@@ -115,6 +115,10 @@ export default function CrearBien(){
 
             <Box component={"button"} type='button' sx={btnDetalle} onClick={addInfo}><RemoveRedEye /> </Box>
             </Tooltip>
+            <Tooltip title="Agregar Nuevo Detalle de Bien">
+
+<Box component={"button"} type='button' sx={btnSeleccionarDetalle} onClick={addInfo}><Add /> </Box>
+</Tooltip>
           </Box>
         </Grid>
 

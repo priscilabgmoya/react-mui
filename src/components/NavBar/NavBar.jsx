@@ -62,7 +62,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 export default function NavBar({location, children}) {
     const theme = useTheme();
     const [open, setOpen] = useState(false);
-  
+    //Sistema de Control de Inventario
+  const user = "informatico"; 
     const handleChange = () => {
       setOpen(!open);
     };
@@ -75,7 +76,7 @@ export default function NavBar({location, children}) {
                     <IconButton  onClick={handleChange} size="large"  sx={{ mr: 2, ...(open && { display: 'none' }) }} edge="start">
                         <Menu sx={{color:'white' }}/>
                     </IconButton>
-                    <Typography  variant="h6" noWrap component="div"  sx={{flexGrow:1, display:'flex', color:'white' ,fontSize:17}}  >Bienes Patrimoniales</Typography>
+                    <Typography  variant="h6" noWrap component="div"  sx={{flexGrow:1, display:'flex', color:'white' ,fontSize:17}}  > {` SCI - ${user == "informatico" ? "Informática" : "Patrimoniales"}`} </Typography>
                     <Box sx={{display:{xs: 'none', sm:'flex'} }}>
                         <ListNavBarHorizontal/>
                         <Outlet /> 

@@ -20,3 +20,4 @@ export const btnOKFactura = { backgroundColor: "#A5B381", border: "none", color:
 export const btnModificarFactura = { backgroundColor: "#edef00", border: "none", color: "black", borderRadius: 20, padding: "5px 20px", fontSize: 16, mt: 1, textAlign: 'center', display: "flex", alignItems: "center", justifyContent: "center"  }
 export const selectDetalle = { width: 500, backgroundColor: "white", mt: 1 }
 export const formAltaBien = { p:3, backgroundColor:"white" , border:1, borderRadius: 10 , }
+export const btnSeleccionarDetalle = { backgroundColor: "#649557", border: "none", color: "white",  fontSize: 15,  borderRadius: 1 ,  width: 40, height: 35}
