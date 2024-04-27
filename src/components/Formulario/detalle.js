@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 import { expRegulares } from '../../helpers/ExpRegulares';
 
-export const detalleBien = {id: 0, descripcion: null, estadoactivo: 1, modeloId: null, marcaId: null, categoriaId: null, nomencladorId: null , caracteristicas: []}; 
+export const detalleBien = {id: 0, descripcion: "null", estadoactivo: 1, modeloId: 3, marcaId: 2, categoriaId: 1, nomencladorId: 2 , caracteristicas: []}; 
 export const validacionNuevoDetalleBien = Yup.object().shape({
     descripcion: Yup.string()
         .matches(expRegulares.descripcionAcento, "Error! Ingrese una descripción valida")

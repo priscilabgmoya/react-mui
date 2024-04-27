@@ -44,9 +44,7 @@ const [nomencladores, setNomencladores] = useState(nomencladorData);
       formik.setFieldValue('caracteristicas',[]); 
     }
   }
-  const handleReset = (values,{resetForm }) => {
-    resetForm(); // Esto restablecerá el formulario a sus valores iniciales
-  };
+
     const onSubmit = async (values,{resetForm }) => {
      // handleChange();
       console.log(values);
@@ -60,7 +58,6 @@ const [nomencladores, setNomencladores] = useState(nomencladorData);
         initialValues: detalleBien,
         validationSchema: validacionNuevoDetalleBien,
         onSubmit: onSubmit,
-        onReset: handleReset
       });
     const closeModal = () => {
       //handleChange();
@@ -68,12 +65,11 @@ const [nomencladores, setNomencladores] = useState(nomencladorData);
      // instanciaCategoria.clearSelecction();
       window.location.reload();
     };
-  console.log(formik.values);
+  console.log(formik);
     return(
                   <Box
         component={"form"}
         onSubmit={formik.handleSubmit}
-        onReset={formik.onReset}
         className="formLogin"
         sx={form}
       >
@@ -84,8 +80,9 @@ const [nomencladores, setNomencladores] = useState(nomencladorData);
             name="descripcion"
             id="descripcionCategoria"
             label="Descripcíon"
+            autoComplete="off"
             onChange={formik.handleChange}
-            value={formik.values.descripcion}
+            value={formik.values.descripcion  || ""}
             sx={inputGestionar}
           />
           {formik?.touched.descripcion && formik?.errors.descripcion ? (
@@ -101,7 +98,7 @@ const [nomencladores, setNomencladores] = useState(nomencladorData);
             getOptionLabel={(option) => { return ` ${option.cuenta} - ${option.descripcion}` }}
             options={nomencladores}
             sx={inputGestionar}
-            value={nomencladores.find(nomenclador =>{return nomenclador.id === formik.values.nomencladorId})}
+            value={nomencladores.find(nomenclador =>{return nomenclador.id === formik.values.nomencladorId}) || null}
             renderInput={(params) => <TextField {...params} label="Nomenclador" />}
           />
             {formik?.touched.nomencladorId && formik?.errors.nomencladorId ? (
@@ -117,7 +114,7 @@ const [nomencladores, setNomencladores] = useState(nomencladorData);
             getOptionLabel={(option) => { return `${option.descripcion}` }}
             options={marcas}
             sx={inputGestionar}
-            value={marcas.find(marcas =>{return marcas.id === formik.values.marcaId})}
+            value={marcas.find(marcas =>{return marcas.id === formik.values.marcaId})  || null}
             renderInput={(params) => <TextField {...params} label="Marca" />}
           />
             {formik?.touched.marcaId && formik?.errors.marcaId ? (
@@ -133,7 +130,7 @@ const [nomencladores, setNomencladores] = useState(nomencladorData);
             getOptionLabel={(option) => { return `${option.descripcion}` }}
             options={modelos}
             sx={inputGestionar}
-            value={modelos.find(modelo =>{return modelo.id === formik.values.modeloId})}
+            value={modelos.find(modelo =>{return modelo.id === formik.values.modeloId})  || null}
             renderInput={(params) => <TextField {...params} label="Modelo" />}
           />
             {formik?.touched.modeloId && formik?.errors.modeloId? (
@@ -149,7 +146,7 @@ const [nomencladores, setNomencladores] = useState(nomencladorData);
             getOptionLabel={(option) => { return `${option.descripcion}` }}
             options={categorias}
             sx={inputGestionar}
-            value={categorias.find(categoria =>{return categoria.id === formik.values.categoriaId})} 
+            value={categorias.find(categoria =>{return categoria.id === formik.values.categoriaId})  || null} 
             renderInput={(params) => <TextField {...params} label="Categoría" />}
           />
             {formik?.touched.categoriaId && formik?.errors.categoriaId? (
@@ -168,11 +165,13 @@ const [nomencladores, setNomencladores] = useState(nomencladorData);
             >
               <TextField
                 label={formik.values.caracteristicas[index].label}
+                autoComplete="off"
                 type="text"
                 id={`caracteristicas.${index}.caracteristicaId`}
                 name={`caracteristicas.${index}.valor`}
                 onChange={formik.handleChange}
                 sx={inputGestionar}
+                value={formik.values.caracteristicas[index].valor || ""}
               />
               {formik.touched[`caracteristicas.${index}.nombre`] &&
               formik.errors[`caracteristicas.${index}.nombre`] ? (
@@ -185,7 +184,7 @@ const [nomencladores, setNomencladores] = useState(nomencladorData);
         </Box>
         }
           <Box sx={{display: "flex", justifyContent:"center", alignItems:"center" , width:"100%"  }}>
-          <Button   variant="contained" color="error" size="medium" type="reset"  sx={{m:1}}> Cancelar </Button>
+          <Button   variant="contained" color="error" size="medium" type="reset"onClick={formik.handleReset}  sx={{m:1}}> Cancelar </Button>
            <Button    variant="contained"  type="submit" color="success"   size="medium"     sx={{m:1}}> Guardar</Button>
         </Box>
 
