@@ -4,8 +4,10 @@ import PrivateLayout from './components/layouts/PrivateLayout'
 import PublicLayout from './components/layouts/PublicLayout'
 import CustomTable from './components/Tabla'; 
 import {taskPruebas} from './helpers/helps.js'
+import { alertSuccess } from './helpers/alert.js';
+import ModificarDetalleBienModal from './components/Formulario/formularioDetalleBien.jsx';
 
-function App() {
+ function App() {
   /*
 const [data, setData] = useState({
   spacing: 0, 
@@ -19,11 +21,22 @@ const handleChange = (e) =>{
   setData(data); 
   console.log(data);
 }*/
-
+const ha  = async () =>{
+  const response = await alertSuccess(); 
+  console.log(response);
+}
+ha(); 
   return (
     <>
     <AppRoutes/>
-    <CustomTable data={taskPruebas}/>
+    {
+      /**
+       <CustomTable data={taskPruebas}/>
+       * 
+       */
+    }
+    <ModificarDetalleBienModal/>
+
     </>
   )
 }
