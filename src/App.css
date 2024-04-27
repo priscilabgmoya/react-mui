@@ -1,7 +1,7 @@
 
 body{
   display: flex;
-  background-color: #E3E7F1 !important;
+  /*background-color: #E3E7F1 !important;*/
   align-items: center;
   flex-direction: column;
 }
