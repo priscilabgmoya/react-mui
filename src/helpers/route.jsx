@@ -11,6 +11,7 @@ import PruebaTres from "../components/pruebaHook/Prueba_tres";
 import CrearBien from "../components/Tabla/altaBien";
 import { EncodeBase64 } from "../components/base64/Base64";
 import LoadFromBase64Example from "../components/base64/Base64_segunda";
+import PaginationModelControlled from "../components/Tabla/TablaPag";
 
 export const routePrivate = [
     {
@@ -35,7 +36,7 @@ export const routePrivate = [
     },
     {
         path: "/GestionarTipoDeAsignacion",
-        element: <Box>/GestionarTipoDeAsignacion</Box>
+        element: <PaginationModelControlled/>
     },
     {
         path: "/GestionarMarcas",
