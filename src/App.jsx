@@ -35,8 +35,12 @@ ha();
        * 
        */
     }
+    {
+      /**
     <ModificarDetalleBienModal/>
-
+       * 
+       */
+  }
     </>
   )
 }
