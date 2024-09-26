@@ -1,100 +1,111 @@
-import * as React from 'react';
+
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import { useState } from 'react';
-import CircularProgress from '@mui/material/CircularProgress';
+
+import { Box } from '@mui/material';
 export default function ComboBox() {
-    const [info ,setInfo] = useState({}); 
 
-    const handleChange = (e) =>{
-        console.log(e);
-        console.log(e.target.outerText);
-        console.log(e.target);
-    }
-    function sleep(duration) {
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            resolve();
-          }, duration);
-        });
-      }
+
+
         
-    const [open, setOpen] = React.useState(false);
-  const [options, setOptions] = React.useState([]);
-  const loading = open && options.length === 0;
 
-  React.useEffect(() => {
-    let active = true;
-
-    if (!loading) {
-      return undefined;
-    }
-
-    (async () => {
-      await sleep(1e3); // For demo purposes.
-
-      if (active) {
-        setOptions([...top100Films]);
-      }
-    })();
-
-    return () => {
-      active = false;
-    };
-  }, [loading]);
-
-  React.useEffect(() => {
-    if (!open) {
-      setOptions([]);
-    }
-  }, [open]);
   return (
     <>
-
-
-
-    <Autocomplete
-      id="asynchronous-demo"
-      sx={{ width: 300 }}
-      open={open}
-      onOpen={() => {
-        setOpen(true);
-      }}
-      onClose={() => {
-        setOpen(false);
-      }}
-      isOptionEqualToValue={(option, value) => option.label === value.label}
+{
+  /**
+   * 
+   * 
+  <Autocomplete
+    id="asynchronous-demo"
+    sx={{ width: 300 }}
+    open={open}
+    onOpen={() => {
+      setOpen(true);
+    }}
+    onClose={() => {
+      setOpen(false);
+    }}
+    isOptionEqualToValue={(option, value) => option.label === value.label}
+    getOptionLabel={(option) => option.label}
+    options={options}
+    loading={loading}
+    renderInput={(params) => (
+      <TextField
+        {...params}
+        label="Asynchronous"
+        InputProps={{
+          ...params.InputProps,
+          endAdornment: (
+            <React.Fragment>
+              {loading ? <CircularProgress color="inherit" size={20} /> : null}
+              {params.InputProps.endAdornment}
+            </React.Fragment>
+          ),
+        }}
+      />
+    )}
+  />
+  
+   * 
+   */
+}
+<Autocomplete
+      options={top100Films}
       getOptionLabel={(option) => option.label}
-      options={options}
-      loading={loading}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          label="Asynchronous"
-          InputProps={{
-            ...params.InputProps,
-            endAdornment: (
-              <React.Fragment>
-                {loading ? <CircularProgress color="inherit" size={20} /> : null}
-                {params.InputProps.endAdornment}
-              </React.Fragment>
-            ),
+      renderOption={(props, option) => (
+        <Box
+          component="tr"
+          {...props}
+          key={option.id}
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: '70% 30%',
+            padding: '8px',
+            borderBottom: '1px solid #ddd',
+            width: 550,
+            backgroundColor:"#ffff"
           }}
-        />
+          
+        >
+       
+        <td style={{ padding: '8px',  width: '70%',border: '1px solid #ddd' }}>{option.label}</td>
+        <td style={{ padding: '8px', width: '30%',border: '1px solid #ddd' }}>{option.year}</td>
+
+        </Box>
+      )}
+      sx={{ width: 570 , backgroundColor:"#ffff"}}
+      renderInput={(params) => <TextField {...params} label="Movie" variant="outlined" />}
+      PaperComponent={({ children }) => (
+        <Box component={"table"} sx={{ width: 550 }}>
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: '70% 30%',
+              backgroundColor: '#f5f5f5',
+              padding: '8px',
+              borderBottom: '1px solid #ddd',
+              fontWeight: 'bold',
+              width: 550,
+            }}
+            component={"thead"}
+          >
+          
+
+            <Box component={"tr"} sx={{ display: 'grid',gridTemplateColumns: '65% 35%',  width: 550,}}>
+              <th style={{ padding: '8px', border: '1px solid #ddd', backgroundColor: '#f5f5f5' }}>Title</th>
+              <th style={{ padding: '8px', border: '1px solid #ddd', backgroundColor: '#f5f5f5' }}>year</th>
+            </Box>
+            </Box>
+          <tbody>
+            {children}
+          </tbody>
+        </Box>
       )}
     />
+
     
     
-    
-    <Autocomplete
-      disablePortal
-      id="combo-box-demo"
-      name="puto"
-      options={top100Films}
-      sx={{ width: 300 }}
-      onChange={handleChange}
-      renderInput={(params) => <TextField {...params} label="Movie"  onChange={handleChange}/>}
-    />
+
     
     </>
 

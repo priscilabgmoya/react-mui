@@ -12,6 +12,7 @@ import CrearBien from "../components/Tabla/altaBien";
 import { EncodeBase64 } from "../components/base64/Base64";
 import LoadFromBase64Example from "../components/base64/Base64_segunda";
 import PaginationModelControlled from "../components/Tabla/TablaPag";
+import Transferencia from "../components/transferencia/Transferencia";
 
 export const routePrivate = [
     {
@@ -44,11 +45,11 @@ export const routePrivate = [
     },
     {
         path: "/GestionarModelos",
-        element: <Box>/GestionarModelos</Box>
+        element: <Transferencia/>
     },
     {
         path: "/GestionarPermisos",
-        element: <Box>/GestionarPermisos</Box>
+        element:  <ComboBox/>
     },
     {
         path: "/GestionarRolUsuarios",
