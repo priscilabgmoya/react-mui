@@ -77,14 +77,14 @@ export const routePrivate = [
     },
     {
         path: "/",
-        element: <TablaCheck/>
+        element: <ComboBox/>
     }
 ]
 
 export const routePublic = [
     {
         path: "/auth",
-        element: <ComboBox/>
+        element: <TablaCheck/>
     },
     {
         path: "/prueba",
