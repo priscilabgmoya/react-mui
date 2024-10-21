@@ -13,6 +13,7 @@ import { EncodeBase64 } from "../components/base64/Base64";
 import LoadFromBase64Example from "../components/base64/Base64_segunda";
 import PaginationModelControlled from "../components/Tabla/TablaPag";
 import Transferencia from "../components/transferencia/Transferencia";
+import InputPrice from "../components/InputPrice/InputPrice";
 
 export const routePrivate = [
     {
@@ -61,7 +62,7 @@ export const routePrivate = [
     },
     {
         path: "/GestionarRubros",
-        element: <Box>/GestionarRubros</Box>
+        element: <InputPrice />
     },
     {
         path: "/GestionarNomencladorEconomico",

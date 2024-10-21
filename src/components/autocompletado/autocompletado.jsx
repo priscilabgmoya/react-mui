@@ -18,6 +18,7 @@ const esquemaValidacion = yup.object().shape({
 });
 export default function ComboBox() {
   const [data] = useState([...top100FilmsGroup1,...top100FilmsGroup2 ])
+  const [inputValue , setInputValue] = useState(""); 
   const onSubmit = (values,{resetForm}) =>{
     console.log(values);
     resetForm(); 
@@ -29,6 +30,13 @@ export default function ComboBox() {
       onSubmit: onSubmit,
     }
    )
+   const onInputValue = (value)=>{
+    if(value){
+      setInputValue(value.toLocaleUpperCase()); 
+    }else{
+      setInputValue(""); 
+    }
+   }
    const handleChange = (value)=>{
     console.log(value);
     if(value){
@@ -93,6 +101,10 @@ export default function ComboBox() {
       options={data}
       getOptionLabel={(option) => option.label}
       onChange={(_, value) =>handleChange(value)}
+      inputValue= {inputValue}
+      onInputChange={(_, value) =>{
+        onInputValue(value); 
+      }}
       value={formik.values.id? top100FilmsGroup1.find(d =>{return d.id === formik.values.id} ): formik.values.idPendiente ? top100FilmsGroup2.find(d =>{return d.id === formik.values.idPendiente}) : null || null }
       renderOption={(props, option) => (
         <Box
