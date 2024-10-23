@@ -14,6 +14,7 @@ import LoadFromBase64Example from "../components/base64/Base64_segunda";
 import PaginationModelControlled from "../components/Tabla/TablaPag";
 import Transferencia from "../components/transferencia/Transferencia";
 import InputPrice from "../components/InputPrice/InputPrice";
+import {  TableData } from "../components/Table";
 
 export const routePrivate = [
     {
@@ -54,7 +55,7 @@ export const routePrivate = [
     },
     {
         path: "/GestionarRolUsuarios",
-        element: <Box>/GestionarRolUsuarios</Box>
+        element: <TableData/>
     },
     {
         path: "/GestionarProveedores",

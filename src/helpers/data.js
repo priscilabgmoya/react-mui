@@ -203,3 +203,238 @@ const task = [
   {"id": 9, "cuenta": "NE-009", "descripcion": "Nomenclador Económico 9"},
   {"id": 10, "cuenta": "NE-010", "descripcion": "Nomenclador Económico 10"}
 ]
+export function createJobs(){
+  const jobPositions = [
+    {
+      id: 1,
+      title: "Software Engineer",
+      users: [
+        { id: 101, nombre: "Juan", apellido: "Pérez", estado: "Activo" },
+        { id: 102, nombre: "María", apellido: "Gómez", estado: "Inactivo" }
+      ],
+      equipos: [
+        {
+          id: 201,
+          nombre: "Laptop Dell XPS",
+          descripcion: "Laptop de alta gama para desarrollo",
+          bienAsociado: [{
+            id: 301,
+            descripcion: "Computadora portátil de alto rendimiento",
+            marca: "Dell",
+            modelo: "XPS 13",
+            numeroSerie: "DELLXPS12345"
+          },
+          { id: 302, descripcion: "Impresora", marca: "HP", modelo: "LaserJet Pro", numeroSerie: "HP12345" },
+          { id: 303, descripcion: "Monitor", marca: "Samsung", modelo: "UltraWide", numeroSerie: "SAMSUNG7890" }
+        ],
+          componentes: [
+            { descripcion: "Memoria RAM 16GB", numeroSerie: "1234-ABC" },
+            { descripcion: "SSD 1TB", numeroSerie: "5678-XYZ" }
+          ],
+          nota: "Este equipo está asignado para proyectos críticos."
+        }
+      ],
+      oficina: {
+        descripcion: "Oficina principal de desarrollo",
+        numeroOficina: 5,
+        piso: 3,
+        descripcionEdificio: "Edificio Central"
+      },
+      sectorOficina: {
+        descripcion: "Sector de Ingeniería",
+        piso: 3,
+        numeroOficina: 5
+      },
+      nota: "Responsable del desarrollo de nuevas funcionalidades del sistema.",
+    },
+    {
+      id: 2,
+      title: "Administrador de Redes",
+      users: [
+        { id: 103, nombre: "Carlos", apellido: "Martínez", estado: "Activo" }
+      ],
+      equipos: [
+        {
+          id: 203,
+          nombre: "Servidor HP",
+          descripcion: "Servidor de alta capacidad para almacenamiento",
+          bienAsociado: [{
+            id: 303,
+            descripcion: "Servidor con 64GB RAM y 4TB de disco duro",
+            marca: "HP",
+            modelo: "ProLiant DL380",
+            numeroSerie: "HPPLDL380-9876"
+          },
+          { id: 304, descripcion: "Teclado", marca: "Logitech", modelo: "K120", numeroSerie: "LOGIK120" },
+          { id: 305, descripcion: "Mouse", marca: "Logitech", modelo: "M185", numeroSerie: "LOGIM185" }
+        ],
+          componentes: [
+            { descripcion: "Disco duro 4TB", numeroSerie: "3456-DEF" }
+          ],
+          nota: "Este equipo está asignado para proyectos críticos."
+        }
+      ],
+      oficina: {
+        descripcion: "Oficina de servidores",
+        numeroOficina: 12,
+        piso: 1,
+        descripcionEdificio: "Edificio B"
+      },
+      sectorOficina: {
+        descripcion: "Sector de Infraestructura",
+        piso: 1,
+        numeroOficina: 12
+      },
+      nota: "Mantiene la infraestructura de red y servidores de la empresa.",
+    },
+    {
+      id: 3,
+      title: "Data Analyst",
+      users: [
+        { id: 104, nombre: "Ana", apellido: "López", estado: "Activo" }
+      ],
+      equipos: [
+        {
+          id: 204,
+          nombre: "PC de Escritorio",
+          descripcion: "PC con alta capacidad de procesamiento para análisis de datos",
+          bienAsociado: [{
+            id: 304,
+            descripcion: "PC de alto rendimiento con 32GB RAM y 2TB de almacenamiento",
+            marca: "Lenovo",
+            modelo: "ThinkStation",
+            numeroSerie: "LENOVO1234"
+          },
+          { id: 305, descripcion: "Impresora", marca: "Epson", modelo: "EcoTank", numeroSerie: "EPS1234" },
+          { id: 306, descripcion: "Monitor", marca: "LG", modelo: "4K Ultra HD", numeroSerie: "LG4K8765" }
+        ],
+          componentes: [
+            { descripcion: "Tarjeta gráfica 8GB", numeroSerie: "TARJETA-GR1" },
+            { descripcion: "Disco SSD 1TB", numeroSerie: "SSD-1000" }
+          ],
+          nota: "Este equipo está asignado para proyectos críticos."
+        }
+      ],
+      oficina: {
+        descripcion: "Oficina de Análisis de Datos",
+        numeroOficina: 15,
+        piso: 2,
+        descripcionEdificio: "Edificio D"
+      },
+      sectorOficina: {
+        descripcion: "Sector de Análisis",
+        piso: 2,
+        numeroOficina: 15
+      },
+      nota: "Analiza los datos para generar informes y recomendaciones.",
+    },
+    // Puedes continuar agregando más puestos de trabajo aquí...
+  ];
+  
+  // Generar puestos de trabajo adicionales
+  for (let i = 4; i <= 60; i++) {
+    jobPositions.push({
+      id: i,
+      title: `Job Position ${i}`,
+      users: [
+        { id: 100 + i, nombre: `Usuario${i}`, apellido: `Apellido${i}`, estado: "Activo" },
+        { id: 101 + i, nombre: `Usuario${i}`, apellido: `Apellido${i}`, estado: "Activo" },
+        { id: 102 + i, nombre: `Usuario${i}`, apellido: `Apellido${i}`, estado: "Activo" },
+        { id: 103 + i, nombre: `Usuario${i}`, apellido: `Apellido${i}`, estado: "Activo" },
+        { id: 104 + i, nombre: `Usuario${i}`, apellido: `Apellido${i}`, estado: "Activo" },
+      ],
+      equipos: [
+        {
+          id: 200 + i,
+          nombre: `Equipo ${i}`,
+          descripcion: `Descripción del equipo ${i}`,
+          bienAsociado: [{
+            id: 300 + i,
+            descripcion: `Descripción del bien asociado al equipo ${i}`,
+            marca: `Marca${i}`,
+            modelo: `Modelo${i}`,
+            numeroSerie: `SN-${i}B`
+          },
+          { id: 301 + i, descripcion: "Impresora", marca: "Marca${i}", modelo: `Modelo Impresora ${i}`, numeroSerie: `SN-IMP-${i}` },
+          { id: 302 + i, descripcion: "Monitor", marca: "Marca${i}", modelo: `Modelo Monitor ${i+1}`, numeroSerie: `SN-MON-${i+1}` },
+          { id: 303 + i, descripcion: "Monitor", marca: "Marca${i}", modelo: `Modelo Monitor ${i+2}`, numeroSerie: `SN-MON-${i+2}` },
+          { id: 304 + i, descripcion: "Monitor", marca: "Marca${i}", modelo: `Modelo Monitor ${i+3}`, numeroSerie: `SN-MON-${i+3}` },
+          { id: 305 + i, descripcion: "Monitor", marca: "Marca${i}", modelo: `Modelo Monitor ${i+4}`, numeroSerie: `SN-MON-${i+4}` },
+  
+        ],
+          componentes: [
+            { descripcion: `Componente${i}1`, numeroSerie: `SN-${i}A` },
+            { descripcion: `Componente${i}2`, numeroSerie: `SN-${i}B` }
+          ],
+        nota: `Nota del equipo ${i}`
+        },
+        {
+          id: 201 + i,
+          nombre: `Equipo ${i+1}`,
+          descripcion: `Descripción del equipo ${i+1}`,
+          bienAsociado: [{
+            id: 301 + i,
+            descripcion: `Descripción del bien asociado al equipo ${i+1}`,
+            marca: `Marca${i+1}`,
+            modelo: `Modelo${i+1}`,
+            numeroSerie: `SN-${i+1}B`
+          }, 
+          { id: 302 + i, descripcion: "Impresora", marca: "Marca${i}", modelo: `Modelo Impresora ${i}`, numeroSerie: `SN-IMP-${i}` },
+        { id: 303 + i, descripcion: "Monitor", marca: "Marca${i}", modelo: `Modelo Monitor ${i+1}`, numeroSerie: `SN-MON-${i+1}` },
+        { id: 304 + i, descripcion: "Monitor", marca: "Marca${i}", modelo: `Modelo Monitor ${i+2}`, numeroSerie: `SN-MON-${i+2}` },
+        { id: 305 + i, descripcion: "Monitor", marca: "Marca${i}", modelo: `Modelo Monitor ${i+3}`, numeroSerie: `SN-MON-${i+3}` },
+        { id: 306 + i, descripcion: "Monitor", marca: "Marca${i}", modelo: `Modelo Monitor ${i+4}`, numeroSerie: `SN-MON-${i+4}` },
+
+        ],
+          componentes: [
+            { descripcion: `Componente${i+1}1`, numeroSerie: `SN-${i+1}A` },
+            { descripcion: `Componente${i+1}2`, numeroSerie: `SN-${i+1}B` }
+          ],
+        nota: `Nota del equipo ${i+1}`
+        },
+        {
+          id: 202 + i,
+          nombre: `Equipo ${i+2}`,
+          descripcion: `Descripción del equipo ${i+2}`,
+          bienAsociado: [{
+            id: 302 + i,
+            descripcion: `Descripción del bien asociado al equipo ${i+2}`,
+            marca: `Marca${i+2}`,
+            modelo: `Modelo${i+2}`,
+            numeroSerie: `SN-${i+2}B`
+          },
+          { id: 303 + i, descripcion: "Impresora", marca: "Marca${i}", modelo: `Modelo Impresora ${i}`, numeroSerie: `SN-IMP-${i}` },
+          { id: 304 + i, descripcion: "Monitor", marca: "Marca${i}", modelo: `Modelo Monitor ${i+1}`, numeroSerie: `SN-MON-${i+1}` },
+          { id: 305 + i, descripcion: "Monitor", marca: "Marca${i}", modelo: `Modelo Monitor ${i+2}`, numeroSerie: `SN-MON-${i+2}` },
+          { id: 306 + i, descripcion: "Monitor", marca: "Marca${i}", modelo: `Modelo Monitor ${i+3}`, numeroSerie: `SN-MON-${i+3}` },
+          { id: 307 + i, descripcion: "Monitor", marca: "Marca${i}", modelo: `Modelo Monitor ${i+4}`, numeroSerie: `SN-MON-${i+4}` },
+  
+        ],
+          componentes: [
+            { descripcion: `Componente${i+2}1`, numeroSerie: `SN-${i+2}A` },
+            { descripcion: `Componente${i+2}2`, numeroSerie: `SN-${i+2}B` }
+          ],
+        nota: `Nota del equipo ${i+2}`
+        }
+      ],
+      oficina: {
+        descripcion: `Oficina ${i}`,
+        numeroOficina: Math.floor(i / 3),
+        piso: Math.floor(i / 10),
+        descripcionEdificio: `Edificio ${String.fromCharCode(65 + (i % 5))}`
+      },
+      sectorOficina: {
+        descripcion: `Sector Oficina ${i}`,
+        piso: Math.floor(i / 10),
+        numeroOficina: Math.floor(i / 3)
+      },
+      nota: `Nota del puesto ${i}`, // Puedes personalizar esto según tus necesidades
+    });
+  }
+  
+  // Definición del array de bienes informáticos
+
+  
+  
+return {jobPositions}; 
+}
